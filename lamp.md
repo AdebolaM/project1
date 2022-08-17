@@ -2,7 +2,9 @@ this is the documentation for my project1
 # Setting up my environment with Ubuntu
 * created an Ec2  Ubuntu instance on AWS as a varition of Linux
 * connected Ubuntu to my windows terminal 
-    * 
+
+
+    * ``` ssh -i "Devops.pem" ubuntu@ec2-18-216-252-205.us-east-2.compute.amazonaws.com``
 
 # Installing Apache2 
 ``` sudo apt update```
@@ -68,6 +70,9 @@ and check the version with
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>```
 
+![curledmessage](https://github.com/AdebolaM/project1/blob/main/images/Screenshots/curling%20a%20message%20on%20the%20virtual%20host.png?raw=true)
+
+
 
 * enable new website and diable the default website
     * sudo a2ensite projectlamp
@@ -80,6 +85,33 @@ and check the version with
 confirm the configuration further by curling something into the file, this will show on the functioning website 
 
 * ```sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html```
+
+![working website](https://github.com/AdebolaM/project1/blob/main/images/Screenshots/confirmation%20of%20message%20on%20website.png?raw=true)
+
+# Enabling php on the server
+
+* open a configuration file 
+
+```sudo vim /etc/apache2/mods-enabled/dir.conf```
+
+* ``` <IfModule mod_dir.c>
+        #Change this:
+        #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+        #To this:
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+</IfModule>```
+
+* ```vim /var/www/projectlamp/index.php```
+
+
+    *```<?php
+phpinfo();```
+
+
+
+
+
+
 
 
 

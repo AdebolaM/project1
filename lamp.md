@@ -107,7 +107,7 @@ confirm the configuration further by curling something into the file, this will 
     *```<?php
 phpinfo();```
 
-
+![lastpage](https://github.com/AdebolaM/project1/blob/main/images/Screenshots/my%20last%20page.png?raw=true)
 
 
 
